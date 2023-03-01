@@ -9,9 +9,6 @@ public class App
     public long add(long first, long second) {
         int a;
         int b;
-        int c;
-        int d;
-        int e;
         return first + second;
     }
 
