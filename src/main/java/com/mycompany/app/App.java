@@ -10,8 +10,6 @@ public class App
         int a;
         int b;
         int kloudlab;
-        int kloudlab2;
-        int kloudlab3;
         return first + second;
     }
 
