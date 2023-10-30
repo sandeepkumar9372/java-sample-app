@@ -1,2 +1,2 @@
 # java-sample-app
-hii
+Java hello world app written with sprint boot and build with maven. 
