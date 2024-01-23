@@ -10,6 +10,9 @@ public class App
         int a;
         int b;
         int kloudlab;
+        int x;
+        int y;
+        int z;
         return first + second;
     }
 
