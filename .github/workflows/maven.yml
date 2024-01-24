@@ -31,6 +31,11 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Verify
       run: ls -al target/
+    - name: Sonar
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=GHA-POC   
   sonar:
     name: Sonar
     runs-on: ubuntu-latest
