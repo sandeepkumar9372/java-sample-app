@@ -15,7 +15,7 @@ pipeline{
         stage('Git Clone'){
             steps{
                 echo "Cloning repository....."
-                git branch: 'main', credentialsId: 'GITHUB-CREDENTIALS', url: 'https://github.com/DevopsFarmer/java-sample-app.git'
+                //git branch: 'main', credentialsId: 'GITHUB-CREDENTIALS', url: 'https://github.com/DevopsFarmer/java-sample-app.git'
             }
         }
         
