@@ -15,6 +15,9 @@ pipeline{
         }
 
         stage('Sonar Scanning'){
+            when {
+                expression {params.RUN_SONAR}
+            }
             environment {
                 scanner = tool 'Sonar'
             }
@@ -30,13 +33,31 @@ pipeline{
             }
         }
         stage('Quality Gate Check'){
+            when {
+                expression {params.RUN_SONAR}
+            }
             steps{
                 waitForQualityGate abortPipeline: true
             }
         }
         stage('Deploy'){
             steps{
-                echo "Deploying..."
+                script{
+                    if(params.Env == 'dev')
+                    {
+                        echo "You have selected dev environment"
+                    }
+                    if(params.Env == 'test')
+                    {
+                        echo "You have selected test environment"
+                    }
+                    if(params.Env == 'prod')
+                    {
+                        echo "You have selected prod environment"
+                    }
+                    print(params.Name)
+                }
+                
             }
         }
     }
