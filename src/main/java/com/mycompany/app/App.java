@@ -18,6 +18,9 @@ public class App
     }
 
     public long multiply(long first, long second) {
+        int xyz;
+        int ABC;
+        int mnc;
         return first * second;
     }
 
