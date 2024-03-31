@@ -24,7 +24,7 @@ pipeline{
                         ${scanner}/bin/sonar-scanner -Dsonar.projectKey=KloudLabJavaApp \
                         -Dsonar.sources=. \
                         -Dsonar.projectName=KloudLab \
-                        -Dsonar.java.binaries=build/
+                        -Dsonar.java.binaries=target/
                     '''
                 }
             }
