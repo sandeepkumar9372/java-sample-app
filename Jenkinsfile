@@ -14,9 +14,19 @@ pipeline{
             }
         }
 
-        stage('Test Stage'){
+        stage('Sonar Scanning'){
+            environment {
+                scanner = tool 'Sonar'
+            }
             steps{
-                echo "This is a test stage"
+                withSonarQubeEnv('SonarQubeServer'){
+                    sh '''
+                        ${scanner}/bin/sonar-scanner -Dsonar.projectKey=KloudLabJavaApp \
+                        -Dsonar.sources=. \
+                        -Dsonar.projectName=KloudLab \
+                        -Dsonar.java.binaries=build/
+                    '''
+                }
             }
         } 
     }
