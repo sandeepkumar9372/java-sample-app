@@ -40,6 +40,24 @@ pipeline{
                 waitForQualityGate abortPipeline: true
             }
         }
+        stage('Artifact Upload')
+        {
+            steps{
+                script{
+                    rtUpload (
+                        serverId: 'artifactory-server',
+                        spec: '''{
+                                    "files": [
+                                        {
+                                            "pattern": "target/*.jar",
+                                            "target": "kloudlab-generic-local/"
+                                        }
+                                    ]
+                        }'''
+                    )
+                }
+            }
+        }
         stage('Deploy'){
             steps{
                 script{
